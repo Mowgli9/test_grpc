@@ -13,6 +13,7 @@ import { Connection, SystemProgram, TransactionMessage } from "@solana/web3.js";
 import dotenv from 'dotenv'
 import { bs58 } from "@coral-xyz/anchor/dist/cjs/utils/bytes";
 import Client from "@triton-one/yellowstone-grpc";
+import { executeJitoTx } from "../../../utils/jito";
 
 dotenv.config()
 
@@ -144,7 +145,7 @@ async function buyToken(
     versionedTx.sign([keypair]);
     console.log('versionedTx', versionedTx)
 
-    // const jitoPromise = executeJitoTx([versionedTx], keypair, 'processed', latestBlockhash);
+    const jitoPromise = executeJitoTx([versionedTx], keypair, 'processed', latestBlockhash);
     // const sendTransactionPromise = stakeConnection.sendTransaction(
     //   transaction,
     //   [keypair],
