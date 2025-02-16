@@ -26,7 +26,7 @@ const connection = new Connection(RPC, {
   commitment: "processed",
 });
 const COMMITMENT = CommitmentLevel.PROCESSED;
-const already_bought = false;
+let already_bought = false;
 const payerKeypair = Keypair.fromSecretKey(bs58.decode(PRIVATE_KEY));
 const solIn = 0.005;
 const priorityFee = 0.0005;
@@ -186,12 +186,13 @@ async function handleData(data: SubscribeUpdate) {
           20,
           priorityFee
         );
+        already_bought = true;
 
-        // if (streamRef) {
-        //   console.log("Closing GRPC stream after successful buy");
-        //   streamRef.end();
-        //   process.exit(0); // Exit the process cleanly
-        // }
+        if (streamRef) {
+          console.log("Closing GRPC stream after successful buy");
+          streamRef.end();
+          process.exit(0); // Exit the process cleanly
+        }
 
         // After successful buy, close the stream
       } catch (error) {
