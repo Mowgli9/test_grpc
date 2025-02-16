@@ -59,8 +59,8 @@ export const executeJitoTx = async (transactions: VersionedTransaction[], payer:
       'https://mainnet.block-engine.jito.wtf/api/v1/bundles',
       // 'https://amsterdam.mainnet.block-engine.jito.wtf/api/v1/bundles',
       // 'https://frankfurt.mainnet.block-engine.jito.wtf/api/v1/bundles',
-      // 'https://ny.mainnet.block-engine.jito.wtf/api/v1/bundles',
-      'https://tokyo.mainnet.block-engine.jito.wtf/api/v1/bundles',
+      'https://ny.mainnet.block-engine.jito.wtf/api/v1/bundles',
+      // 'https://tokyo.mainnet.block-engine.jito.wtf/api/v1/bundles',
     ];
 
     const requests = endpoints.map((url) =>

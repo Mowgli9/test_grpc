@@ -28,7 +28,7 @@ const connection = new Connection(RPC, {
 const COMMITMENT = CommitmentLevel.PROCESSED;
 let already_bought = false;
 const payerKeypair = Keypair.fromSecretKey(bs58.decode(PRIVATE_KEY));
-const solIn = 0.005;
+const solIn = 0.0005;
 const priorityFee = 0.0005;
 let streamRef: ClientDuplexStream<SubscribeRequest, SubscribeUpdate> | null =
   null;
