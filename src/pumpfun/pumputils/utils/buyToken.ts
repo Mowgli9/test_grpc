@@ -145,7 +145,7 @@ async function buyToken(
     versionedTx.sign([keypair]);
     console.log('versionedTx', versionedTx)
 
-    const jitoPromise = executeJitoTx([versionedTx], keypair, 'processed', latestBlockhash);
+    const jitoPromise = await executeJitoTx([versionedTx], keypair, 'processed', latestBlockhash);
     // const sendTransactionPromise = stakeConnection.sendTransaction(
     //   transaction,
     //   [keypair],
